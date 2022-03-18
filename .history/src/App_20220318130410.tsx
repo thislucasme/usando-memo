@@ -18,7 +18,7 @@ function App() {
   const addItemToWishList = useCallback((item: string) => {
     //state é a wishlist antes da autalização
     setWishList(state => [...state, item])
-  }, [])
+  }, [wishList])
 
   const countItensWithOne = useMemo(() => {
     console.log("teste")

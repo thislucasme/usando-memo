@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo } from 'react';
 import Item from '../src/components/Item';
 import './App.css';
 
@@ -15,10 +15,9 @@ function App() {
     setItens([...itens, `Item ${itens.length}`])
   }
 
-  const addItemToWishList = useCallback((item: string) => {
-    //state é a wishlist antes da autalização
-    setWishList(state => [...state, item])
-  }, [])
+  const addItemToWishList = (item: string) => {
+    setWishList([...wishList, item])
+  }
 
   const countItensWithOne = useMemo(() => {
     console.log("teste")
@@ -33,7 +32,7 @@ function App() {
         <button onClick={addItemToList}>teste</button>
         <ul>
           {itens.map((item) => {
-            return <Item onAddToWishList={addItemToWishList} item={item} key={item} />
+            return <Item item={item} key={item} />
           })}
         </ul>
       </div>
